@@ -19,19 +19,12 @@ Project Structure
 pgsql
 /sales_dw_project
 ├── README.md
-├── create_tables.sql         # SQL script to create tables with PKs and FKs
+├── Code_create_tables_sql_sample.txt # SQL script to create tables
+├──Relation_tables_foreign_keys.csv (export SQL)
 ├── Samples_Querys.doc
-├── Code_create_tables_sql_sample.txt
-├── /data
-│   ├── customer_dim.csv
-│   ├── item_dim.csv
-│   ├── store_dim.csv
-│   ├── time_dim.csv
-│   ├── trans_dim.csv
-│   └── fact_table.csv
 │
 └── /diagrams
-    └── ERD.dbml              # ERD model file (.png export)
+    └── ERD.pgerd              # ERD model file (.png export)
 
 Database Design
 •	Fact Table: fact_table — Connects to all dimensions and stores sales metrics (quantity, unit_price, total_price).
