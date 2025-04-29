@@ -20,6 +20,8 @@ pgsql
 /sales_dw_project
 ├── README.md
 ├── create_tables.sql         # SQL script to create tables with PKs and FKs
+├── Samples_Querys.doc
+├── Code_create_tables_sql_sample.txt
 ├── /data
 │   ├── customer_dim.csv
 │   ├── item_dim.csv
