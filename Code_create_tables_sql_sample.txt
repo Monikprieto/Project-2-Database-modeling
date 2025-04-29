@@ -1,0 +1,65 @@
+-- Tabla: customer_dim
+CREATE TABLE customer_dim (
+    coustomer_key VARCHAR(20) PRIMARY KEY,
+    name VARCHAR(100),
+    contact_no VARCHAR(20),
+    nid VARCHAR(20)
+);
+
+-- Tabla: item_dim (usamos "desc" entre comillas por ser palabra reservada)
+CREATE TABLE item_dim (
+    item_key VARCHAR(20) PRIMARY KEY,
+    item_name VARCHAR(100),
+    "desc" TEXT,
+    unit_price DECIMAL(10, 2),
+    man_country VARCHAR(50),
+    supplier VARCHAR(100),
+    unit VARCHAR(20)
+);
+
+-- Tabla: store_dim
+CREATE TABLE store_dim (
+    store_key VARCHAR(20) PRIMARY KEY,
+    division VARCHAR(100),
+    district VARCHAR(100),
+    upazila VARCHAR(100)
+);
+
+-- Tabla: time_dim
+CREATE TABLE time_dim (
+    time_key VARCHAR(20) PRIMARY KEY,
+    date DATE,
+    hour INT,
+    day INT,
+    week INT,
+    month INT,
+    quarter INT,
+    year INT
+);
+
+-- Tabla: trans_dim
+CREATE TABLE trans_dim (
+    payment_key VARCHAR(20) PRIMARY KEY,
+    trans_type VARCHAR(50),
+    bank_name VARCHAR(100)
+);
+
+-- Tabla: fact_table
+CREATE TABLE fact_table (
+    payment_key VARCHAR(20),
+    coustomer_key VARCHAR(20),
+    time_key VARCHAR(20),
+    item_key VARCHAR(20),
+    store_key VARCHAR(20),
+    quantity INT,
+    unit VARCHAR(20),
+    unit_price DECIMAL(10, 2),
+    total_price DECIMAL(10, 2),
+
+    -- Relaciones
+    FOREIGN KEY (payment_key) REFERENCES trans_dim(payment_key),
+    FOREIGN KEY (coustomer_key) REFERENCES customer_dim(coustomer_key),
+    FOREIGN KEY (time_key) REFERENCES time_dim(time_key),
+    FOREIGN KEY (item_key) REFERENCES item_dim(item_key),
+    FOREIGN KEY (store_key) REFERENCES store_dim(store_key)
+);
