@@ -1,0 +1,6 @@
+"constraint_name","table_name","column_name","foreign_table_name","foreign_column_name"
+"fact_table_payment_key_fkey","fact_table","payment_key","trans_dim","payment_key"
+"fact_table_coustomer_key_fkey","fact_table","coustomer_key","customer_dim","coustomer_key"
+"fact_table_time_key_fkey","fact_table","time_key","time_dim","time_key"
+"fact_table_item_key_fkey","fact_table","item_key","item_dim","item_key"
+"fact_table_store_key_fkey","fact_table","store_key","store_dim","store_key"
